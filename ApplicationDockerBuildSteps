@@ -1,0 +1,14 @@
+#Run application's Dockerfile by
+
+docker build --network app-mysql --build-arg url=https://github.com/justkamal/BookStoreApp.git\
+  --build-arg project=BookStoreApp\
+  --build-arg artifactid=bookstore\
+  --build-arg version=0.0.1-SNAPSHOT\
+  -t bookstore - < Dockerfile
+
+#Check container logs and wait till the sevice is up 
+
+docker container logs -f bookstore
+
+#If the service is up press Ctrl + C to exit the logs
+#Now you can use the service on http://localhost:8080/swagger-ui.html
